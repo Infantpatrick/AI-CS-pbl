@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+venv/
+env/
+.env
+.git/
+.gitignore
+data/raw/
+data/processed/
+data/tokenized/
+results/
+frontend/node_modules/
+frontend/dist/
+scratch/
+*.md

@@ -1,0 +1,25 @@
+.env
+
+# Large datasets
+*.csv
+*.parquet
+*.npz
+
+# Model artifacts
+models/
+*.safetensors
+*.bin
+*.pt
+*.pth
+
+# Environments, caches, build files
+__pycache__/
+.pytest_cache/
+node_modules/
+.venv/
+venv/
+build/
+dist/
+logs/
+*.log
+.git.backup/

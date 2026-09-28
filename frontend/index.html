@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PhishGuard AI</title>
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('phishguard_ui_prefs');
+          if (saved) {
+            var prefs = JSON.parse(saved);
+            var isDark = prefs.theme === 'dark' || (prefs.theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
+            document.documentElement.dataset.accent = prefs.accent || 'cyan';
+            document.documentElement.dataset.glassmorphism = prefs.glassmorphism !== undefined ? prefs.glassmorphism : 'true';
+            document.documentElement.dataset.glow = prefs.glow !== undefined ? prefs.glow : 'true';
+            document.documentElement.dataset.compactSidebar = prefs.compactSidebar !== undefined ? prefs.compactSidebar : 'false';
+            document.body.dataset.theme = isDark ? 'dark' : 'light';
+          } else {
+            document.documentElement.dataset.theme = 'dark';
+            document.documentElement.dataset.accent = 'cyan';
+            document.documentElement.dataset.glassmorphism = 'true';
+            document.documentElement.dataset.glow = 'true';
+            document.documentElement.dataset.compactSidebar = 'false';
+            document.body.dataset.theme = 'dark';
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
